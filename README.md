@@ -128,45 +128,49 @@ A personal portfolio website hosted on AWS EC2 (t3.micro, Ubuntu 24.04) with Ngi
 ```bash
 cd ~/Downloads
 ````
-Step 3: Set Correct Permissions for Your Key File
+#### Step 3: Set Correct Permissions for Your Key File
 
-bash
+```bash
 chmod 400 mirza-key.pem
 ````
-Step 4: Connect via SSH
+#### Step 4: Connect via SSH
 
-bash
+```bash
 ssh -i mirza-key.pem ubuntu@15.135.223.103
 ````
-Step 5: Accept the Connection
+#### Step 5: Accept the Connection
 
 When asked "Are you sure you want to continue connecting?", type yes and press Enter.
 
 You should now see a command prompt like: ubuntu@ip-xxx:~$
 
-4. Install Nginx Web Server
+#### 4. Install Nginx Web Server
 
 You are still in the SSH terminal on your server.
 
-Step 1: Update Your Server's Package List
+#### Step 1: Update Your Server's Package List
 
-bash
+```bash
 sudo apt update
-Step 2: Upgrade Existing Packages
+```
+#### Step 2: Upgrade Existing Packages
 
-bash
+```bash
 sudo apt upgrade -y
-Step 3: Install Nginx
+```
+#### Step 3: Install Nginx
 
-bash
+```bash
 sudo apt install nginx -y
-Step 4: Verify Nginx is Running
+```
+#### Step 4: Verify Nginx is Running
 
-bash
+```bash
 sudo systemctl status nginx
+```
 Expected output: You should see "active (running)" in green text. Press q to exit.
 
-Step 5: Test That Your Website is Working
+#### Step 5: Test That Your Website is Working
 
 Open a web browser on your local computer
 Go to: http://15.135.223.103
