@@ -175,79 +175,88 @@ Expected output: You should see "active (running)" in green text. Press q to exi
 Open a web browser on your local computer
 Go to: http://15.135.223.103
 You should see the "Welcome to nginx!" page
-5. Deploy Portfolio Files
 
-Step 1: Locate the Web Root Directory
+#### 5. Deploy Portfolio Files
+
+#### Step 1: Locate the Web Root Directory
 
 The default folder for website files is:
 
 text
 /var/www/html/
-Step 2: Set Correct Permissions
+#### Step 2: Set Correct Permissions
 
-bash
+```bash
 sudo chown -R www-data:www-data /var/www/html/
 sudo chmod -R 755 /var/www/html/
-Step 3: Create HTML/CSS Files Manually
+```
+### Step 3: Create HTML/CSS Files Manually
 
 Create the main HTML file:
 
-bash
+```bash
 sudo nano /var/www/html/index.html
+```
 Paste your HTML code, then save with Ctrl+X, then Y, then Enter.
 
 Create CSS file (if you have one):
 
-bash
+```bash
 sudo nano /var/www/html/style.css
-Step 4: Set Permissions Again
+```
+### Step 4: Set Permissions Again
 
-bash
+```bash
 sudo chown -R www-data:www-data /var/www/html/
 sudo chmod -R 755 /var/www/html/
-Step 5: Test Nginx Configuration
+```
+### Step 5: Test Nginx Configuration
 
-bash
+```bash
 sudo nginx -t
-Step 6: Reload Nginx
+```
+### Step 6: Reload Nginx
 
-bash
+```bash
 sudo systemctl reload nginx
-Step 7: Verify Your Portfolio is Live
+```
+### Step 7: Verify Your Portfolio is Live
 
 Open your web browser
 Go to: http://15.135.223.103
 You should now see YOUR portfolio
-6. GoDaddy Domain & DNS
+### 6. GoDaddy Domain & DNS
 
-Step 1: Purchase a Domain
+### Step 1: Purchase a Domain
 
 For this project, I purchased mirzajarral.work from GoDaddy.
 
-Step 2: Access Your DNS Settings
+### Step 2: Access Your DNS Settings
 
 Log into GoDaddy
 Go to My Products → Domains → DNS
-Step 3: Create A Records
+### Step 3: Create A Records
 
 Add these two records:
 
 Type	Name	Value	TTL
 A	@	15.135.223.103	600
 A	www	15.135.223.103	600
-Step 4: Verify DNS Resolution
+### Step 4: Verify DNS Resolution
 
-bash
+```bash
 nslookup mirzajarral.work
+```
 Expected output: 15.135.223.103
 
-7. Configure Nginx for Custom Domain
+### 7. Configure Nginx for Custom Domain
 
-Step 1: Edit Nginx Configuration
+### Step 1: Edit Nginx Configuration
 
-bash
+```bash
 sudo nano /etc/nginx/sites-available/default
-Step 2: Update the server_name Line
+```
+### Step 2: Update the server_name Line
 
 Find this line:
 
@@ -257,16 +266,17 @@ Change it to:
 
 text
 server_name mirzajarral.work www.mirzajarral.work;
-Step 3: Save and Exit
+#### Step 3: Save and Exit
 
 Press Ctrl+X, then Y, then Enter.
 
-Step 4: Test and Reload
+### Step 4: Test and Reload
 
-bash
+```bash
 sudo nginx -t
 sudo systemctl reload nginx
-Step 5: Test Your Domain
+```
+### Step 5: Test Your Domain
 
 Go to: http://mirzajarral.work in your browser.
 
