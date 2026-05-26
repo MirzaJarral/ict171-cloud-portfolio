@@ -280,35 +280,38 @@ sudo systemctl reload nginx
 
 Go to: http://mirzajarral.work in your browser.
 
-8. Install SSL/TLS (HTTPS)
+## 8. Install SSL/TLS (HTTPS)
 
-Step 1: Install Certbot
+### Step 1: Install Certbot
 
-bash
+```bash
 sudo apt install certbot python3-certbot-nginx -y
-Step 2: Obtain SSL Certificate
+```
+### Step 2: Obtain SSL Certificate
 
-bash
+```bash
 sudo certbot --nginx -d mirzajarral.work -d www.mirzajarral.work
-Step 3: Follow the Prompts
+```
+### Step 3: Follow the Prompts
 
 Question	Answer
 Enter email address	Your email
 Agree to terms?	Press A then Enter
 Redirect HTTP to HTTPS?	2
-Step 4: Verify SSL is Working
+### Step 4: Verify SSL is Working
 
-bash
+```bash
 sudo certbot certificates
+```
 Output shows:
 
 Certificate Name: mirzajarral.work
 Expiry Date: 2026-07-22 (61 days valid)
-Step 5: Verify in Browser
+### Step 5: Verify in Browser
 
 Go to: https://mirzajarral.work - look for the padlock icon.
 
-9. Automation Script
+## 9. Automation Script
 
 Script Name: ssl-monitor.sh
 
@@ -316,7 +319,7 @@ Purpose: Monitors SSL certificate expiry, creates backups, and tests renewal.
 
 Full Script Code
 
-bash
+```bash
 #!/bin/bash
 # SSL Certificate Monitor & Backup Script
 # Author: Mirza Jarral
@@ -377,62 +380,66 @@ case "${1:-}" in
 esac
 
 log_message "Script completed"
-How to Install the Script
 
-bash
-# Create the script
+``` 
+### How to Install the Script
+
+
+#### Create the script
+```bash
 sudo nano /usr/local/bin/ssl-monitor.sh
+```
 
-# Paste the script code above, then save (Ctrl+X, Y, Enter)
+#### Paste the script code above, then save (Ctrl+X, Y, Enter)
 
-# Make it executable
+#### Make it executable
+```bash
 sudo chmod +x /usr/local/bin/ssl-monitor.sh
+```
 
-# Test it
+#### Test it
+```bash
 sudo /usr/local/bin/ssl-monitor.sh
-Set Up Automatic Daily Run
+```
+#### Set Up Automatic Daily Run
 
-bash
+```bash
 sudo crontab -e
-Add this line:
+```
 
+Add this line:
+```bash
 text
 0 2 * * * /usr/local/bin/ssl-monitor.sh
-10. Troubleshooting
+```
+## 10. Troubleshooting
 
 Issue	Solution
 Cannot SSH	Check security group allows port 22 from your IP
 Website shows "Welcome to nginx"	Files not in /var/www/html/
 Domain not working	DNS propagation takes time (up to 48 hours)
 HTTPS not working	Run sudo certbot renew --dry-run
-Useful Commands
 
-bash
+### Useful Commands
+
+```bash
 sudo systemctl status nginx
 sudo tail -f /var/log/nginx/error.log
 nslookup mirzajarral.work
 sudo certbot certificates
-11. References
+```
+## 11. References
 
 AWS EC2 Documentation
 Nginx Official Documentation
 GoDaddy DNS Help
 Certbot (Let's Encrypt)
-Video Explainer
+
+## Video Explainer
 
 [LINK TO YOUR VIDEO WILL GO HERE]
 
-Project Timeline
-
-Date	Task
-May 15, 2026	EC2 instance launched, Nginx installed
-May 16, 2026	Portfolio HTML/CSS created
-May 17, 2026	Domain purchased on GoDaddy
-May 18, 2026	DNS records configured
-May 19, 2026	SSL/TLS installed
-May 20, 2026	Automation script created
-May 21, 2026	Documentation completed
-Server Status
+## Server Status
 
 Check	Status
 EC2 Instance	✅ Running
