@@ -118,73 +118,73 @@ A personal portfolio website hosted on AWS EC2 (t3.micro, Ubuntu 24.04) with Ngi
 
 ### For Mac or Linux Users:
 
-#### Step 1: Open Terminal
+### Step 1: Open Terminal
 
 - On Mac: Press `Cmd + Space`, type "Terminal", press Enter
 - On Linux: Press `Ctrl + Alt + T`
 
-#### Step 2: Navigate to Your Key File Location
+### Step 2: Navigate to Your Key File Location
 
 ```bash
 cd ~/Downloads
 ````
-#### Step 3: Set Correct Permissions for Your Key File
+### Step 3: Set Correct Permissions for Your Key File
 
 ```bash
 chmod 400 mirza-key.pem
 ````
-#### Step 4: Connect via SSH
+### Step 4: Connect via SSH
 
 ```bash
 ssh -i mirza-key.pem ubuntu@15.135.223.103
 ````
-#### Step 5: Accept the Connection
+### Step 5: Accept the Connection
 
 When asked "Are you sure you want to continue connecting?", type yes and press Enter.
 
 You should now see a command prompt like: ubuntu@ip-xxx:~$
 
-#### 4. Install Nginx Web Server
-
+## 4. Install Nginx Web Server
+---
 You are still in the SSH terminal on your server.
 
-#### Step 1: Update Your Server's Package List
+### Step 1: Update Your Server's Package List
 
 ```bash
 sudo apt update
 ```
-#### Step 2: Upgrade Existing Packages
+### Step 2: Upgrade Existing Packages
 
 ```bash
 sudo apt upgrade -y
 ```
-#### Step 3: Install Nginx
+### Step 3: Install Nginx
 
 ```bash
 sudo apt install nginx -y
 ```
-#### Step 4: Verify Nginx is Running
+### Step 4: Verify Nginx is Running
 
 ```bash
 sudo systemctl status nginx
 ```
 Expected output: You should see "active (running)" in green text. Press q to exit.
 
-#### Step 5: Test That Your Website is Working
+### Step 5: Test That Your Website is Working
 
 Open a web browser on your local computer
 Go to: http://15.135.223.103
 You should see the "Welcome to nginx!" page
 
-#### 5. Deploy Portfolio Files
-
-#### Step 1: Locate the Web Root Directory
+## 5. Deploy Portfolio Files
+---
+### Step 1: Locate the Web Root Directory
 
 The default folder for website files is:
 
 text
 /var/www/html/
-#### Step 2: Set Correct Permissions
+### Step 2: Set Correct Permissions
 
 ```bash
 sudo chown -R www-data:www-data /var/www/html/
@@ -225,8 +225,8 @@ sudo systemctl reload nginx
 Open your web browser
 Go to: http://15.135.223.103
 You should now see YOUR portfolio
-### 6. GoDaddy Domain & DNS
-
+## 6. GoDaddy Domain & DNS
+---
 ### Step 1: Purchase a Domain
 
 For this project, I purchased mirzajarral.work from GoDaddy.
@@ -249,8 +249,8 @@ nslookup mirzajarral.work
 ```
 Expected output: 15.135.223.103
 
-### 7. Configure Nginx for Custom Domain
-
+## 7. Configure Nginx for Custom Domain
+---
 ### Step 1: Edit Nginx Configuration
 
 ```bash
@@ -266,7 +266,7 @@ Change it to:
 
 text
 server_name mirzajarral.work www.mirzajarral.work;
-#### Step 3: Save and Exit
+### Step 3: Save and Exit
 
 Press Ctrl+X, then Y, then Enter.
 
