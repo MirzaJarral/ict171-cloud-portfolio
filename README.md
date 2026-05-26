@@ -127,14 +127,17 @@ A personal portfolio website hosted on AWS EC2 (t3.micro, Ubuntu 24.04) with Ngi
 
 ```bash
 cd ~/Downloads
+````
 Step 3: Set Correct Permissions for Your Key File
 
 bash
 chmod 400 mirza-key.pem
+````
 Step 4: Connect via SSH
 
 bash
 ssh -i mirza-key.pem ubuntu@15.135.223.103
+````
 Step 5: Accept the Connection
 
 When asked "Are you sure you want to continue connecting?", type yes and press Enter.
