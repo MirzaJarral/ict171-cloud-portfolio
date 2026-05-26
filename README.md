@@ -157,13 +157,12 @@ Your security group should now have THREE rules:
 
 #### Step 1: Open Terminal
 
-1. On Mac: Press `Cmd + Space`, type "Terminal", press Enter
-2. On Linux: Press `Ctrl + Alt + T`
+- On Mac: Press `Cmd + Space`, type "Terminal", press Enter
+- On Linux: Press `Ctrl + Alt + T`
 
 #### Step 2: Navigate to Your Key File Location
 
 ```bash
-# Go to your Downloads folder (where the key was saved)
 cd ~/Downloads
 Step 3: Set Correct Permissions for Your Key File
 
@@ -175,8 +174,10 @@ bash
 ssh -i mirza-key.pem ubuntu@15.135.223.103
 Step 5: Accept the Connection
 
-When asked "Are you sure you want to continue connecting?", type yes and press Enter
+When asked "Are you sure you want to continue connecting?", type yes and press Enter.
+
 You should now see a welcome message and a command prompt like: ubuntu@ip-xxx:~$
+
 4. Install Nginx Web Server
 
 You are still in the SSH terminal on your server.
@@ -284,6 +285,7 @@ TTL	600
 Click "Save"
 
 Second record (www subdomain):
+
 Click "Add new record" again:
 
 Field	Value
@@ -400,7 +402,7 @@ bash
 # ============================================
 # SSL Certificate Monitor & Backup Script
 # Author: Mirza Jarral
-# Student: [YOUR STUDENT NUMBER]
+# Student: 35017797
 # Purpose: Monitor SSL expiry, backup certificates, and log status
 # For: ICT171 Cloud Server Project
 # Domain: mirzajarral.work
@@ -605,6 +607,8 @@ Nginx Official Documentation
 GoDaddy DNS Help
 Certbot (Let's Encrypt)
 Ubuntu 24.04 Server Guide
+
+
 Video Explainer
 
 [LINK TO YOUR VIDEO WILL GO HERE]
