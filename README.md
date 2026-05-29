@@ -151,6 +151,10 @@ When asked "Are you sure you want to continue connecting?", type yes and press E
 
 You should now see a command prompt like: ubuntu@ip-xxx:~$
 
+![SSH connection to EC2 instance](https://github.com/MirzaJarral/ict171-cloud-portfolio/blob/main/images/SSH%20CONNECTION.png?raw=true)
+
+*Figure 2: Successful SSH connection to the EC2 instance*
+
 ## 4. Install Nginx Web Server
 ---
 You are still in the SSH terminal on your server.
