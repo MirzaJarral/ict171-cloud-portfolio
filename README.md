@@ -1,8 +1,11 @@
 # ICT171 Cloud Server Project - Personal Portfolio
 
 **Student Name:** Mirza Jarral
+
 **Student Number:** 35017797
+
 **Domain:** https://mirzajarral.work
+
 **Server IP:** 15.135.223.103
 
 ---
@@ -82,7 +85,7 @@ A personal portfolio website hosted on AWS EC2 (t3.micro, Ubuntu 24.04) with Ngi
 
 ### Step 3: Name Your Instance
 
-1. Under **"Name and tags"**, enter: `mirza-portfolio-server`
+1. Under **"Name and tags"**, enter: `my-assignment-server`
 
 ### Step 4: Choose an Amazon Machine Image (AMI)
 
@@ -96,7 +99,7 @@ A personal portfolio website hosted on AWS EC2 (t3.micro, Ubuntu 24.04) with Ngi
 ### Step 6: Create a Key Pair
 
 1. Under **"Key pair (login)"**, click **"Create new key pair"**
-2. **Key pair name:** Enter `mirza-key`
+2. **Key pair name:** Enter `assignment-key`
 3. Click **"Create key pair"**
 4. Save the downloaded `.pem` file somewhere safe
 
@@ -131,12 +134,12 @@ cd ~/Downloads
 ### Step 3: Set Correct Permissions for Your Key File
 
 ```bash
-chmod 400 mirza-key.pem
+chmod 400 assignment-key.pem
 ````
 ### Step 4: Connect via SSH
 
 ```bash
-ssh -i mirza-key.pem ubuntu@15.135.223.103
+ssh -i assignment-key.pem ubuntu@15.135.223.103
 ````
 ### Step 5: Accept the Connection
 
@@ -412,32 +415,88 @@ Add this line:
 text
 0 2 * * * /usr/local/bin/ssl-monitor.sh
 ```
+
 ## 10. Troubleshooting
 
-Issue	Solution
-Cannot SSH	Check security group allows port 22 from your IP
-Website shows "Welcome to nginx"	Files not in /var/www/html/
-Domain not working	DNS propagation takes time (up to 48 hours)
-HTTPS not working	Run sudo certbot renew --dry-run
+### Common Issues and Solutions
 
-### Useful Commands
+| Issue | Solution |
+|-------|----------|
+| Cannot SSH into server | Check that EC2 security group allows SSH (port 22) from your IP address. Verify key permissions: `chmod 400 your-key.pem` |
+| Website shows "Welcome to nginx" (default page) | Your files are not in `/var/www/html/` or permissions are wrong. Run: `sudo chmod -R 755 /var/www/html/` |
+| Domain name not loading | DNS propagation takes 5 minutes to 48 hours. Check status at https://www.whatsmydns.net |
+| HTTPS not working (no padlock) | Run `sudo certbot renew --dry-run` to test. Also check certificate exists with `sudo certbot certificates` |
+| 403 Forbidden error | File permissions issue. Run: `sudo chown -R www-data:www-data /var/www/html/` and `sudo chmod -R 755 /var/www/html/` |
+| SSL certificate expired | Run `sudo certbot renew` to manually renew. Ensure certbot timer is active: `sudo systemctl status certbot.timer` |
 
+### Useful Diagnostic Commands
+
+
+#### Check Nginx web server status
 ```bash
 sudo systemctl status nginx
+```
+
+#### View Nginx error logs in real-time
+```bash
 sudo tail -f /var/log/nginx/error.log
+```
+#### View Nginx access logs
+```bash
+sudo tail -f /var/log/nginx/access.log
+```
+#### Test DNS resolution for your domain
+```bash
 nslookup mirzajarral.work
+```
+#### Alternative DNS lookup
+```bash
+dig mirzajarral.work
+```
+#### Check SSL certificate information
+```bash
 sudo certbot certificates
 ```
+#### Test Nginx configuration for errors
+```bash
+sudo nginx -t
+```
+#### Reload Nginx after configuration changes
+```bash
+sudo systemctl reload nginx
+```
+#### Check what ports are listening (80 for HTTP, 443 for HTTPS)
+```bash
+sudo netstat -tulpn | grep -E ':(80|443)'
+```
+#### Check firewall status (if UFW is enabled)
+```bash
+sudo ufw status
+```
+
 ## 11. References
 
-AWS EC2 Documentation
-Nginx Official Documentation
-GoDaddy DNS Help
-Certbot (Let's Encrypt)
+### Official Documentation
+
+- [AWS EC2 Documentation](https://docs.aws.amazon.com/ec2/)
+- [Nginx Official Documentation](https://nginx.org/en/docs/)
+- [GoDaddy DNS Help](https://www.godaddy.com/help)
+- [Certbot (Let's Encrypt)](https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal)
+- [Ubuntu 24.04 Server Guide](https://ubuntu.com/server/docs)
+
+### Code References
+
+- [OpenSSL Certificate Management](https://www.openssl.org/docs/)
+- [Bash Scripting Guide](https://www.gnu.org/software/bash/manual/)
+
+### Additional Resources Used
+
+- [What's My DNS - DNS Propagation Checker](https://www.whatsmydns.net)
+- [SSL Labs SSL Test](https://www.ssllabs.com/ssltest/)
 
 ## Video Explainer
 
-[LINK TO YOUR VIDEO WILL GO HERE]
+https://youtu.be/NvKkz-W1rk0
 
 ## Server Status
 
