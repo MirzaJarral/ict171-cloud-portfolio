@@ -185,7 +185,6 @@ You should see the "Welcome to nginx!" page
 
 The default folder for website files is:
 
-text
 /var/www/html/
 ### Step 2: Set Correct Permissions
 
@@ -324,6 +323,7 @@ Full Script Code
 
 ```bash
 #!/bin/bash
+
 # SSL Certificate Monitor & Backup Script
 # Author: Mirza Jarral
 # Student: 35017797
@@ -500,14 +500,14 @@ https://youtu.be/NvKkz-W1rk0
 
 ## Server Status
 
-Check	Status
-EC2 Instance	✅ Running
-Nginx	✅ Active
-Domain DNS	✅ Resolving
-SSL Certificate	✅ Valid (expires July 22, 2026)
-Automation Script	✅ Installed
-Cron Job	✅ Scheduled (daily at 2am)
-Live Server: https://mirzajarral.work
+| Check | Status |
+|-------|--------|
+| EC2 Instance | ✅ Running |
+| Nginx | ✅ Active |
+| Domain DNS | ✅ Resolving |
+| SSL Certificate | ✅ Valid (expires July 22, 2026) |
+| Automation Script | ✅ Installed |
+| Cron Job | ✅ Scheduled (daily at 2am) |
 
 GitHub Repository: https://github.com/mirzajarral/ict171-cloud-portfolio
 
