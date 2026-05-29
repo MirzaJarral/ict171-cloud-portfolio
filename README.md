@@ -187,6 +187,10 @@ Open a web browser on your local computer
 Go to: http://15.135.223.103
 You should see the "Welcome to nginx!" page
 
+![Nginx status - active and running](https://github.com/MirzaJarral/ict171-cloud-portfolio/blob/main/images/NGINX%20RUNNING.png?raw=true)
+
+*Figure 3: Nginx web server showing "active (running)"*
+
 ## 5. Deploy Portfolio Files
 ---
 ### Step 1: Locate the Web Root Directory
@@ -290,6 +294,10 @@ sudo systemctl reload nginx
 
 Go to: http://mirzajarral.work in your browser.
 
+![GoDaddy DNS A records](https://github.com/MirzaJarral/ict171-cloud-portfolio/blob/main/images/DNS%20.png?raw=true)
+
+*Figure 4: DNS A records pointing @ and www to 15.135.223.103*
+
 ## 8. Install SSL/TLS (HTTPS)
 
 ### Step 1: Install Certbot
@@ -320,6 +328,10 @@ Expiry Date: 2026-07-22 (61 days valid)
 ### Step 5: Verify in Browser
 
 Go to: https://mirzajarral.work - look for the padlock icon.
+
+![SSL padlock icon - connection is secure](https://github.com/MirzaJarral/ict171-cloud-portfolio/blob/main/images/SSL%20CERTIFICATE.png?raw=true)
+
+*Figure 5: HTTPS padlock icon confirming SSL is working correctly*
 
 ## 9. Automation Script
 
@@ -423,6 +435,11 @@ Add this line:
 text
 0 2 * * * /usr/local/bin/ssl-monitor.sh
 ```
+
+
+![SSL monitoring script output](https://github.com/MirzaJarral/ict171-cloud-portfolio/blob/main/images/SCRIPT_OUTPUT.png?raw=true)
+
+*Figure 6: SSL monitoring script showing certificate valid for 53 days, backup created, and renewal test passed*
 
 ## 10. Troubleshooting
 
