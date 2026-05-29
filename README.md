@@ -115,6 +115,10 @@ A personal portfolio website hosted on AWS EC2 (t3.micro, Ubuntu 24.04) with Ngi
 1. Click the orange **"Launch instance"** button
 2. Note down your **Public IP address** (this server uses `15.135.223.103`)
 
+![AWS EC2 Console showing running instance](https://github.com/MirzaJarral/ict171-cloud-portfolio/blob/main/images/EC2%20INSTANCE.png?raw=true)
+
+*Figure 1: EC2 instance "MyAssignmentServer" running with IP 15.135.223.103*
+
 ---
 
 ## 3. Connect to Your Server (SSH)
